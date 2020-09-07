@@ -1,0 +1,182 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateModel",
+      "model": "StationsOnLine"
+    },
+    {
+      "tag": "CreateField",
+      "model": "StationsOnLine",
+      "field": "position",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "StationsOnLine",
+          "field": "position"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "StationsOnLine",
+          "field": "position"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "1"
+    },
+    {
+      "tag": "CreateField",
+      "model": "StationsOnLine",
+      "field": "line",
+      "type": "Line",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "StationsOnLine",
+          "field": "line"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "StationsOnLine",
+          "field": "line"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[lineId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "StationsOnLine",
+          "field": "line"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "StationsOnLine",
+      "field": "lineId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "StationsOnLine",
+      "field": "station",
+      "type": "Station",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "StationsOnLine",
+          "field": "station"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "StationsOnLine",
+          "field": "station"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[stationId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "StationsOnLine",
+          "field": "station"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "StationsOnLine",
+      "field": "stationId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Model",
+          "model": "StationsOnLine"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Model",
+          "model": "StationsOnLine"
+        },
+        "directive": "id"
+      },
+      "argument": "",
+      "value": "[lineId, stationId]"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Line",
+      "field": "stations",
+      "type": "StationsOnLine"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Station",
+      "field": "lines",
+      "type": "StationsOnLine"
+    }
+  ]
+}

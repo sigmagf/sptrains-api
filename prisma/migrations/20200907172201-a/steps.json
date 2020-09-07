@@ -1,0 +1,22 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteModel",
+      "model": "LineStationOrder"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Line",
+      "field": "stations",
+      "type": "Station"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Station",
+      "field": "lines",
+      "type": "Line",
+      "arity": "List"
+    }
+  ]
+}

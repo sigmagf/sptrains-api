@@ -1,0 +1,86 @@
+{
+  "env": {
+    "es2020": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb/base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "import-helpers",
+    "@typescript-eslint",
+    "import"
+  ],
+  "rules": {
+    /* Enable empty functions */
+    "@typescript-eslint/no-empty-function": "off",
+
+    /* ??? */
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+
+    /* Fix unused vars */
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+
+    /* Disable force default export */
+    "import/prefer-default-export": "off",
+
+    /* Disable need of extension */
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+
+    /* Disabele force compact arrow functions */
+    "arrow-body-style": "off",
+
+    /* Disable object new line */
+    "object-curly-newline": "off",
+
+    /* Enable console and alert */
+    "no-console": "off",
+    "no-alert": "off",
+
+    /* Defines max row length */
+    "max-len": [
+      "warn",
+      { "code": 120 }
+    ],
+
+    /* Enable nameless functions */
+    "func-names": "off",
+
+    /* Enable and add import order helpers */
+    "import-helpers/order-imports": [
+      "error",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "module",
+          "/^~/",
+          [ "parent", "sibling", "index" ]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ],
+
+    /* Disable forced space between functions/methods and parentheses */
+    "keyword-spacing": [
+      "warn",
+      {
+        "overrides": {
+          "if": { "after": false },
+          "for": { "after": false },
+          "while": { "after": false },
+          "catch": { "after": false },
+          "switch": { "after": false }
+        }
+      }
+    ]
+  }
+}

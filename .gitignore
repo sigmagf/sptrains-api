@@ -1,0 +1,14 @@
+/__legacy__
+/node_modules
+/.vscode
+/.yarn
+
+
+.env
+/dist
+/.yarnrc
+/yarn.lock
+
+!/node_modules/.prisma
+!/prisma/**/*
+!/src/**/*

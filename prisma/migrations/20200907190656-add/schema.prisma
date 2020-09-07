@@ -1,0 +1,41 @@
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Company {
+  id         String    @id
+  name       String
+  alias      String
+  lines      Line[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now()) @updatedAt
+
+}
+
+model Line {
+  id         String    @id
+  number     Int       @unique
+  name       String    @unique
+  color      String
+  active     Boolean?  @default(true)
+  stations   Station[]
+  companyId  String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now()) @updatedAt
+
+  company    Company    @relation(fields: [companyId], references: [id])
+}
+
+model Station {
+  id           String    @id
+  displayName  String
+  fullName     String    @unique
+  elevator     Boolean?  @default(false)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @default(now()) @updatedAt
+}
