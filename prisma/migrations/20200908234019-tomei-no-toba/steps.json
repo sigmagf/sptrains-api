@@ -1,0 +1,74 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Model",
+          "model": "Line"
+        },
+        "directive": "map"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Model",
+          "model": "Line"
+        },
+        "directive": "map"
+      },
+      "argument": "",
+      "value": "\"lines\""
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Model",
+          "model": "Station"
+        },
+        "directive": "map"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Model",
+          "model": "Station"
+        },
+        "directive": "map"
+      },
+      "argument": "",
+      "value": "\"stations\""
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Model",
+          "model": "StationsOnLine"
+        },
+        "directive": "map"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Model",
+          "model": "StationsOnLine"
+        },
+        "directive": "map"
+      },
+      "argument": "",
+      "value": "\"_stationsOnLine\""
+    }
+  ]
+}

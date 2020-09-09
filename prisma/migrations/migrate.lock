@@ -8,3 +8,11 @@
 20200907190656-add
 20200907190859-add2
 20200907191858-fix-many-to-many-stations-to-line-relation
+20200907210025-change-position-to-self-relation-on-stations-on-line
+20200907210527-sla
+20200908232220-start-migration-of-company-to-operator
+20200908232336-aaa
+20200908234019-tomei-no-toba
+20200908234313-me-fodi-2
+20200908234456-me-fodi-3
+20200908234823-nao-me-fodi-e-adicionei-detalhes-para-a-ligacao-estacao-linha

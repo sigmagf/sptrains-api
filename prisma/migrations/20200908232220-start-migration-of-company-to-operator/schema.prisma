@@ -1,0 +1,66 @@
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Operator {
+  id         String    @id @default(uuid())
+  name       String
+  alias      String
+  lines      Line[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now()) @updatedAt
+}
+
+model Company {
+  id         String    @id @default(uuid())
+  name       String
+  alias      String
+  lines      Line[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now()) @updatedAt
+
+}
+
+model Line {
+  id         String    @id @default(uuid())
+  number     Int       @unique
+  name       String    @unique
+  color      String
+  active     Boolean?  @default(true)
+  stations   StationsOnLine[]
+  companyId  String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now()) @updatedAt
+
+  company    Company    @relation(fields: [companyId], references: [id])
+}
+
+model Station {
+  id           String    @id @default(uuid())
+  displayName  String
+  fullName     String    @unique
+  elevator     Boolean?  @default(false)
+  lines        StationsOnLine[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @default(now()) @updatedAt
+}
+
+model StationsOnLine {
+  @@id([lineId, stationId])
+
+  id          String   @unique @default(uuid())
+  lineId      String
+  stationId   String
+  nextId      String?
+
+  line        Line     @relation(fields: [lineId], references: [id])
+  station     Station  @relation(fields: [stationId], references: [id])
+
+  next        StationsOnLine? @relation("line-station-link", fields: [nextId], references: [id])
+  previous    StationsOnLine? @relation("line-station-link")
+}

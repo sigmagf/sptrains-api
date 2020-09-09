@@ -27,16 +27,14 @@ export default async function (req: Request, res: Response): Promise<Response> {
     await Promise.all(lines.map(async (lineNumber) => {
       const { id: lineId } = await prisma.line.findOne({ where: { number: lineNumber } });
 
-      const lineStations = await prisma.stationsOnLine.findMany({
-        where: { lineId },
-        orderBy: { position: 'asc' },
-      });
-
-      const newStationPosition = lineStations[lineStations.length - 1].position + 1 || 1;
+      const lastStation = (await prisma.stationsOnLine.findMany({
+        where: { lineId, nextId: null },
+      }))[0];
 
       await prisma.stationsOnLine.create({
         data: {
-          position: newStationPosition,
+          id: v4(),
+          previous: { connect: { id: lastStation.id } },
           line: { connect: { id: lineId } },
           station: { connect: { id: station.id } },
         },

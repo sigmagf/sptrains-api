@@ -5,7 +5,7 @@ export interface ILine {
   color: string;
   active: boolean;
   stations: IStation[];
-  company: ICompany;
+  operator: IOperator;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -19,11 +19,29 @@ export interface IStation {
   updatedAt?: Date;
 }
 
-export interface ICompany {
+export interface IOperator {
   id: string;
   name: string;
   alias: string;
   lines: ILine[];
   createdAt?: Date;
   updatedAt?: Date;
+}
+
+export interface IStatusResponse {
+  LinhaId: number;
+  Nome: string;
+  Status: string;
+  Descricao: string;
+  Tipo: 'M'|'C'|'4'|'5';
+  DataGeracao: Date;
+}
+
+export interface ILineStatus {
+  id: number;
+  name: string;
+  status: string;
+  details: string;
+  type: 'M'|'C'|'4'|'5';
+  updatedAt: Date;
 }
