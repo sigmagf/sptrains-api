@@ -17,4 +17,6 @@ router.get('/lines/status', (req, res) => getStatus(req, res));
 router.get('/stations', (req, res) => listStation(req, res));
 router.post('/stations', (req, res) => createStation(req, res));
 
+router.use('*', (req, res) => res.status(404).send('Route not found'));
+
 export { router };
