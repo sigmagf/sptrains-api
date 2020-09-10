@@ -42,6 +42,6 @@ export interface ILineStatus {
   name: string;
   status: string;
   details: string;
-  type: 'M'|'C'|'4'|'5';
+  operator: 'M'|'C'|'4'|'5';
   updatedAt: Date;
 }

@@ -16,7 +16,7 @@ export default async function (req: Request, res: Response): Promise<Response> {
       name: line.Nome,
       status: line.Status,
       details: line.Descricao,
-      type: line.Tipo,
+      operator: line.Tipo,
       updatedAt: line.DataGeracao,
     }));
 
