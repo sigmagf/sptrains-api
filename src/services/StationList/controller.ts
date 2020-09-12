@@ -9,7 +9,7 @@ export class StationListController {
     try {
       const stations = await this.service.execute();
 
-      return res.status(201).json({ stations });
+      return res.json({ stations });
     } catch(err) {
       return res.status(500).json({ message: err.message || 'Unexpected error.' });
     }

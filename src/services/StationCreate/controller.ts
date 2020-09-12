@@ -10,11 +10,11 @@ export class StationCreateController {
       const { displayName, fullName, elevator } = req.body;
 
       if(!displayName) {
-        throw new Error('The field displayName must be informed.');
+        throw new Error('The field \'displayName\' must be informed.');
       }
 
       if(!fullName) {
-        throw new Error('The field fullName must be informed.');
+        throw new Error('The field \'fullName\' must be informed.');
       }
 
       const station = await this.service.execute({

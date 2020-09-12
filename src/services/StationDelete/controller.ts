@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 
-import { StationFindService } from './service';
+import { StationDeleteService } from './service';
 
-export class StationFindController {
-  constructor(private service: StationFindService) {}
+export class StationDeleteController {
+  constructor(private service: StationDeleteService) {}
 
   async handle(req: Request, res: Response) {
     try {
@@ -13,9 +13,9 @@ export class StationFindController {
         throw new Error('The param \'id\' must be informed.');
       }
 
-      const station = await this.service.execute({ id });
+      await this.service.execute({ id });
 
-      return res.json({ station });
+      return res.status(200).send();
     } catch(err) {
       return res.status(500).json({ message: err.message || 'Unexpected error.' });
     }

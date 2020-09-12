@@ -5,8 +5,7 @@ import { StationListService } from './service';
 
 const repository = new PrismaStationsRepository();
 
-const service = new StationListService(repository);
-const controller = new StationListController(service);
+const stationListService = new StationListService(repository);
+const stationListController = new StationListController(stationListService);
 
-export default controller;
-export { service as stationListService };
+export { stationListController, stationListService };
