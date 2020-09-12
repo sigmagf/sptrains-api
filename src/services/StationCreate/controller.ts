@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { StationCreateService } from './StationCreateService';
+import { StationCreateService } from './service';
 
 export class StationCreateController {
   constructor(private service: StationCreateService) {}

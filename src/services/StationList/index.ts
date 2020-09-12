@@ -1,7 +1,7 @@
 import { PrismaStationsRepository } from '~/repositories';
 
-import { StationListController } from './StationListController';
-import { StationListService } from './StationListService';
+import { StationListController } from './controller';
+import { StationListService } from './service';
 
 const repository = new PrismaStationsRepository();
 
