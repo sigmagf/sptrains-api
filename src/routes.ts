@@ -1,22 +1,12 @@
 import { Router } from 'express';
 
-import { createCompany } from './controllers/companies';
-import { createLine, listLine, addStation, findByNumber, getStatus } from './controllers/lines';
-import { createStation, listStation } from './controllers/stations';
+import { stationCreate, stationList } from './services';
 
 const router = Router();
 
-router.post('/companies', (req, res) => createCompany(req, res));
+router.get('/stations', (req, res) => stationList.handle(req, res));
+router.post('/stations', (req, res) => stationCreate.handle(req, res));
 
-router.get('/lines', (req, res) => listLine(req, res));
-router.get('/lines/n/:number', (req, res) => findByNumber(req, res));
-router.post('/lines', (req, res) => createLine(req, res));
-router.post('/lines/stations', (req, res) => addStation(req, res));
-router.get('/lines/status', (req, res) => getStatus(req, res));
-
-router.get('/stations', (req, res) => listStation(req, res));
-router.post('/stations', (req, res) => createStation(req, res));
-
-router.use('*', (req, res) => res.status(404).send('Route not found'));
+router.use('*', (req, res) => res.status(404).json({ message: 'Route not found' }));
 
 export { router };

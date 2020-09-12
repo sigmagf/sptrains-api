@@ -36,6 +36,12 @@
     "import/extensions": "off",
     "import/no-unresolved": "off",
 
+    /* Enable empty constructors */
+    "no-useless-constructor": "off",
+
+    /* Remove need for empty line in classes */
+    "lines-between-class-members": "off",
+
     /* Disabele force compact arrow functions */
     "arrow-body-style": "off",
 
