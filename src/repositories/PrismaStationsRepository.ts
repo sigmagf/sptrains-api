@@ -22,10 +22,6 @@ export default class PrismaStationsRepository implements IStationsRepository {
   async list(): Promise<Station[]> {
     const stations = await this.prisma.station.findMany();
 
-    if(stations.length === 0) {
-      return null;
-    }
-
     return stations;
   }
 
