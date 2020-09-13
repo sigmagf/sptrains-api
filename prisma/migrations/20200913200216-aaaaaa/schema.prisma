@@ -1,0 +1,65 @@
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Operator {
+  id         String    @id @default(uuid())
+  name       String
+  alias      String
+  lines      Line[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now()) @updatedAt
+
+  @@map("operators")
+}
+
+model Line {
+  id          String            @id @default(uuid())
+  number      Int               @unique
+  name        String
+  color       String
+  active      Boolean?          @default(true)
+  stations    StationsOnLine[]
+  operatorId  String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @default(now()) @updatedAt
+
+  operator    Operator          @relation(fields: [operatorId], references: [id])
+
+  @@map("lines")
+}
+
+model Station {
+  id           String            @id @default(uuid())
+  displayName  String
+  fullName     String
+  elevator     Boolean?          @default(false)
+  lines        StationsOnLine[]
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @default(now()) @updatedAt
+
+  @@map("stations")
+}
+
+model StationsOnLine {
+  @@id([lineId, stationId])
+
+  id          String           @unique @default(uuid())
+  lineId      String
+  stationId   String
+  nextId      String?
+  details     String?
+
+  line        Line             @relation(fields: [lineId], references: [id])
+  station     Station          @relation(fields: [stationId], references: [id])
+
+  next        StationsOnLine?  @relation("line-station-link", fields: [nextId], references: [id])
+  previous    StationsOnLine?  @relation("line-station-link")
+  
+  @@map("_stationsOnLine")
+}
