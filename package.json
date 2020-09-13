@@ -2,10 +2,10 @@
   "name": "@sptrains/server",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "src/server.ts",
   "scripts": {
-    "start": "node dist/index.js",
-    "dev": "env NODE_ENV=development tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts",
+    "start": "node dist/server.js",
+    "dev": "env NODE_ENV=development tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
     "build": "rimraf ./dist && babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "heroku": "npm-run-all build start",
     "prisma:migrate": "npm-run-all prisma:migrate:save prisma:migrate:up prisma:generate",

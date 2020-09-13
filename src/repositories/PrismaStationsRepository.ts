@@ -2,9 +2,9 @@ import { PrismaClient } from '@prisma/client';
 
 import { Station } from '~/entities/Station';
 
-import IStationsRepository from './IStationsRepository';
+import { IStationsRepository } from './IStationsRepository';
 
-export default class PrismaStationsRepository implements IStationsRepository {
+export class PrismaStationsRepository implements IStationsRepository {
   private prisma = new PrismaClient();
 
   async save(data: Station): Promise<Station> {

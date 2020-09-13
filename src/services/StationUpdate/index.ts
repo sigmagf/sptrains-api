@@ -1,4 +1,4 @@
-import { PrismaStationsRepository } from '~/repositories';
+import { PrismaStationsRepository } from '~/repositories/PrismaStationsRepository';
 
 import { StationUpdateController } from './controller';
 import { StationUpdateService } from './service';

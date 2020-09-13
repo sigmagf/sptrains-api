@@ -1,11 +1,11 @@
-import { PrismaStationsRepository } from '~/repositories';
+import { PrismaOperatorsRepository } from '~/repositories/PrismaOperatorsRepository';
 
-import { StationDeleteController } from './controller';
-import { StationDeleteService } from './service';
+import { OperatorDeleteController } from './controller';
+import { OperatorDeleteService } from './service';
 
-const repository = new PrismaStationsRepository();
+const repository = new PrismaOperatorsRepository();
 
-const stationDeleteService = new StationDeleteService(repository);
-const stationDeleteController = new StationDeleteController(stationDeleteService);
+const operatorDeleteService = new OperatorDeleteService(repository);
+const operatorDeleteController = new OperatorDeleteController(operatorDeleteService);
 
-export { stationDeleteController, stationDeleteService };
+export { operatorDeleteController, operatorDeleteService };

@@ -1,4 +1,4 @@
-import { IStationsRepository } from '~/repositories';
+import { IStationsRepository } from '~/repositories/IStationsRepository';
 
 interface IStationFindServiceDTO {
   id: string;

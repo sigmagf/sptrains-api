@@ -1,13 +1,13 @@
 import { IOperatorsRepository } from '~/repositories/IOperatorsRepository';
 
-interface IOperatorUpdateServiceDTO {
+interface ILineUpdateServiceDTO {
   id: string;
 }
 
-export class OperatorDeleteService {
+export class LineDeleteService {
   constructor(private repository: IOperatorsRepository) {}
 
-  async execute(data: IOperatorUpdateServiceDTO) {
+  async execute(data: ILineUpdateServiceDTO) {
     await this.repository.delete(data.id);
   }
 }

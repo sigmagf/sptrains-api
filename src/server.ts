@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 if(process.env.NODE_ENV === 'development') require('dotenv/config');
 
 // eslint-disable-next-line import/first

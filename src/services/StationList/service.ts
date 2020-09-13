@@ -1,4 +1,4 @@
-import { IStationsRepository } from '~/repositories';
+import { IStationsRepository } from '~/repositories/IStationsRepository';
 
 export class StationListService {
   constructor(private repository: IStationsRepository) {}

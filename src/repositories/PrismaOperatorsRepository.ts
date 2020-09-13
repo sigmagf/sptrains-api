@@ -2,9 +2,9 @@ import { PrismaClient } from '@prisma/client';
 
 import { Operator } from '~/entities/Operator';
 
-import IOperatorsRepository from './IOperatorsRepository';
+import { IOperatorsRepository } from './IOperatorsRepository';
 
-export default class PrismaOperatorsRepository implements IOperatorsRepository {
+export class PrismaOperatorsRepository implements IOperatorsRepository {
   private prisma = new PrismaClient();
 
   async save(data: Operator): Promise<Operator> {

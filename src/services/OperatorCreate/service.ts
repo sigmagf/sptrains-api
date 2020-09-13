@@ -1,17 +1,16 @@
-import { Station } from '~/entities/Station';
-import { IStationsRepository } from '~/repositories';
+import { Operator } from '~/entities/Operator';
+import { IOperatorsRepository } from '~/repositories/IOperatorsRepository';
 
-interface IStationCreateServiceDTO {
-  displayName: string;
-  fullName: string;
-  elevator: boolean;
+interface IOperatorCreateServiceDTO {
+  name: string;
+  alias: string;
 }
 
-export class StationCreateService {
-  constructor(private repository: IStationsRepository) {}
+export class OperatorCreateService {
+  constructor(private repository: IOperatorsRepository) {}
 
-  async execute(data: IStationCreateServiceDTO) {
-    const station = await this.repository.save(new Station(data));
+  async execute(data: IOperatorCreateServiceDTO) {
+    const station = await this.repository.save(new Operator(data));
 
     return station;
   }

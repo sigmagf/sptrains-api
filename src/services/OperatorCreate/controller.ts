@@ -1,29 +1,25 @@
 import { Request, Response } from 'express';
 
-import { StationCreateService } from './service';
+import { OperatorCreateService } from './service';
 
-export class StationCreateController {
-  constructor(private service: StationCreateService) {}
+export class OperatorCreateController {
+  constructor(private service: OperatorCreateService) {}
 
   async handle(req: Request, res: Response) {
     try {
-      const { displayName, fullName, elevator } = req.body;
+      const { name, alias } = req.body;
 
-      if(!displayName) {
-        throw new Error('The field \'displayName\' must be informed.');
+      if(!name) {
+        throw new Error('The field \'name\' must be informed.');
       }
 
-      if(!fullName) {
-        throw new Error('The field \'fullName\' must be informed.');
+      if(!alias) {
+        throw new Error('The field \'alias\' must be informed.');
       }
 
-      const station = await this.service.execute({
-        displayName,
-        fullName,
-        elevator: elevator || false,
-      });
+      const operator = await this.service.execute({ name, alias });
 
-      return res.status(201).json({ station });
+      return res.status(201).json({ operator });
     } catch(err) {
       return res.status(500).json({ message: err.message || 'Unexpected error.' });
     }

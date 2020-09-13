@@ -68,6 +68,10 @@
         "newlinesBetween": "always",
         "groups": [
           "module",
+          "/^~/entities/",
+          "/^~/repositories/",
+          "/^~/services/",
+          "/^~/utils/",
           "/^~/",
           [ "parent", "sibling", "index" ]
         ],

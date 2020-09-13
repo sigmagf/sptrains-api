@@ -1,11 +1,11 @@
-import { PrismaStationsRepository } from '~/repositories';
+import { PrismaOperatorsRepository } from '~/repositories/PrismaOperatorsRepository';
 
-import { StationCreateController } from './controller';
-import { StationCreateService } from './service';
+import { OperatorCreateController } from './controller';
+import { OperatorCreateService } from './service';
 
-const repository = new PrismaStationsRepository();
+const repository = new PrismaOperatorsRepository();
 
-const stationCreateService = new StationCreateService(repository);
-const stationCreateController = new StationCreateController(stationCreateService);
+const operatorCreateService = new OperatorCreateService(repository);
+const operatorCreateController = new OperatorCreateController(operatorCreateService);
 
-export { stationCreateService, stationCreateController };
+export { operatorCreateService, operatorCreateController };

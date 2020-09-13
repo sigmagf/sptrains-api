@@ -1,5 +1,5 @@
 import { Station } from '~/entities/Station';
-import { IStationsRepository } from '~/repositories';
+import { IStationsRepository } from '~/repositories/IStationsRepository';
 
 interface IStationCreateServiceDTO {
   displayName: string;
