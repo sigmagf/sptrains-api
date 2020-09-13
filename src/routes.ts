@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+import { wipMiddleware } from './middlewares/wipMiddleware';
 import { ligatureCreateController } from './services/LigatureCreate';
 import { ligatureDeleteController } from './services/LigatureDelete';
 import { ligatureFindController } from './services/LigatureFind';
@@ -25,31 +26,31 @@ import { stationUpdateController } from './services/StationUpdate';
 
 const router = Router();
 
-router.get('/stations', (req, res) => stationListController.handle(req, res));
-router.get('/stations/:id', (req, res) => stationFindController.handle(req, res));
-router.post('/stations', (req, res) => stationCreateController.handle(req, res));
-router.put('/stations/:id', (req, res) => stationUpdateController.handle(req, res));
-router.delete('/stations/:id', (req, res) => stationDeleteController.handle(req, res));
+router.get('/stations', wipMiddleware, (req, res) => stationListController.handle(req, res));
+router.get('/stations/:id', wipMiddleware, (req, res) => stationFindController.handle(req, res));
+router.post('/stations', wipMiddleware, (req, res) => stationCreateController.handle(req, res));
+router.put('/stations/:id', wipMiddleware, (req, res) => stationUpdateController.handle(req, res));
+router.delete('/stations/:id', wipMiddleware, (req, res) => stationDeleteController.handle(req, res));
 
-router.get('/operators', (req, res) => operatorListController.handle(req, res));
-router.get('/operators/:id', (req, res) => operatorFindController.handle(req, res));
-router.post('/operators', (req, res) => operatorCreateController.handle(req, res));
-router.put('/operators/:id', (req, res) => operatorUpdateController.handle(req, res));
-router.delete('/operators/:id', (req, res) => operatorDeleteController.handle(req, res));
+router.get('/operators', wipMiddleware, (req, res) => operatorListController.handle(req, res));
+router.get('/operators/:id', wipMiddleware, (req, res) => operatorFindController.handle(req, res));
+router.post('/operators', wipMiddleware, (req, res) => operatorCreateController.handle(req, res));
+router.put('/operators/:id', wipMiddleware, (req, res) => operatorUpdateController.handle(req, res));
+router.delete('/operators/:id', wipMiddleware, (req, res) => operatorDeleteController.handle(req, res));
 
 router.get('/lines/status', (req, res) => lineStatusController.handle(req, res));
-router.get('/lines', (req, res) => lineListController.handle(req, res));
-router.get('/lines/:id', (req, res) => lineFindController.handle(req, res));
-router.post('/lines', (req, res) => lineCreateController.handle(req, res));
-router.put('/lines/:id', (req, res) => lineUpdateController.handle(req, res));
-router.delete('/lines/:id', (req, res) => lineDeleteController.handle(req, res));
+router.get('/lines', wipMiddleware, (req, res) => lineListController.handle(req, res));
+router.get('/lines/:id', wipMiddleware, (req, res) => lineFindController.handle(req, res));
+router.post('/lines', wipMiddleware, (req, res) => lineCreateController.handle(req, res));
+router.put('/lines/:id', wipMiddleware, (req, res) => lineUpdateController.handle(req, res));
+router.delete('/lines/:id', wipMiddleware, (req, res) => lineDeleteController.handle(req, res));
 
-router.get('/ligatures', (req, res) => ligatureListController.handle(req, res));
-router.get('/ligatures/l/:lineId', (req, res) => ligatureListByLineController.handle(req, res));
-router.get('/ligatures/:id', (req, res) => ligatureFindController.handle(req, res));
-router.post('/ligatures', (req, res) => ligatureCreateController.handle(req, res));
-router.put('/ligatures/:id', (req, res) => ligatureUpdateController.handle(req, res));
-router.delete('/ligatures/:id', (req, res) => ligatureDeleteController.handle(req, res));
+router.get('/ligatures', wipMiddleware, (req, res) => ligatureListController.handle(req, res));
+router.get('/ligatures/l/:lineId', wipMiddleware, (req, res) => ligatureListByLineController.handle(req, res));
+router.get('/ligatures/:id', wipMiddleware, (req, res) => ligatureFindController.handle(req, res));
+router.post('/ligatures', wipMiddleware, (req, res) => ligatureCreateController.handle(req, res));
+router.put('/ligatures/:id', wipMiddleware, (req, res) => ligatureUpdateController.handle(req, res));
+router.delete('/ligatures/:id', wipMiddleware, (req, res) => ligatureDeleteController.handle(req, res));
 
 router.use('*', (req, res) => res.status(404).json({ message: 'Route not found' }));
 
