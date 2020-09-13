@@ -3,10 +3,11 @@ import { v4 } from 'uuid';
 export class Ligature {
   public readonly id: string;
 
-  public lineId: number;
+  public lineId: string;
   public stationId: string;
   public nextId?: string;
-  public details: boolean;
+  public previousId?: string;
+  public details?: string;
 
   constructor(props: Omit<Ligature, 'id'>, id?: string) {
     Object.assign(this, props);

@@ -1,27 +1,28 @@
 import { Request, Response } from 'express';
 
-import { LineUpdateService } from './service';
+import { LigatureUpdateService } from './service';
 
-export class LineUpdateController {
-  constructor(private service: LineUpdateService) {}
+export class LigatureUpdateController {
+  constructor(private service: LigatureUpdateService) {}
 
   async handle(req: Request, res: Response) {
     try {
       const { id } = req.params;
-      const { number, name, color, active, operatorId } = req.body;
+      const { lineId, stationId, details, nextId, previousId } = req.body;
 
       if(!id) {
         throw new Error('The param \'id\' must be informed.');
       }
 
-      if(!number && !name && !color && !active && !operatorId) {
-        throw new Error('Inform \'number\', \'name\', \'color\', \'active\' or \'operatorId\'.');
+      if(!lineId && !stationId && !details && !nextId && !previousId) {
+        throw new Error('Inform \'lineId\', \'stationId\', \'details\', \'nextId\' or \'previousId\'.');
       }
 
-      const stations = await this.service.execute({ id, number, name, color, active, operatorId });
+      const stations = await this.service.execute({ id, lineId, stationId, details, nextId, previousId });
 
       return res.json({ stations });
     } catch(err) {
+      console.log(err);
       return res.status(500).json({ message: err.message || 'Unexpected error.' });
     }
   }

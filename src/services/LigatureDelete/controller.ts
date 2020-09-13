@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 
-import { LineDeleteService } from './service';
+import { LigatureDeleteService } from './service';
 
-export class LineDeleteController {
-  constructor(private service: LineDeleteService) {}
+export class LigatureDeleteController {
+  constructor(private service: LigatureDeleteService) {}
 
   async handle(req: Request, res: Response) {
     try {

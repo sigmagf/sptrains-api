@@ -1,19 +1,19 @@
-import { ILinesRepository } from '~/repositories/ILinesRepository';
+import { ILigaturesRepository } from '~/repositories/ILigaturesRepository';
 
-interface ILineFindServiceDTO {
+interface ILigatureFindServiceDTO {
   id: string;
 }
 
 export class LineFindService {
-  constructor(private repository: ILinesRepository) {}
+  constructor(private repository: ILigaturesRepository) {}
 
-  async execute(data: ILineFindServiceDTO) {
-    const station = await this.repository.find(data.id);
+  async execute(data: ILigatureFindServiceDTO) {
+    const ligature = await this.repository.find(data.id);
 
-    if(!station) {
-      throw new Error('No line founded.');
+    if(!ligature) {
+      throw new Error('No ligature founded.');
     }
 
-    return station;
+    return ligature;
   }
 }

@@ -1,11 +1,11 @@
-import { PrismaLinesRepository } from '~/repositories/PrismaLinesRepository';
+import { PrismaLigaturesRepository } from '~/repositories/PrismaLigaturesRepository';
 
-import { LineFindController } from './controller';
+import { LigatureFindController } from './controller';
 import { LineFindService } from './service';
 
-const repository = new PrismaLinesRepository();
+const repository = new PrismaLigaturesRepository();
 
-const lineListService = new LineFindService(repository);
-const lineFindController = new LineFindController(lineListService);
+const ligatureListService = new LineFindService(repository);
+const ligatureFindController = new LigatureFindController(ligatureListService);
 
-export { lineFindController, lineListService };
+export { ligatureFindController, ligatureListService };

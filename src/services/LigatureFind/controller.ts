@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { LineFindService } from './service';
 
-export class LineFindController {
+export class LigatureFindController {
   constructor(private service: LineFindService) {}
 
   async handle(req: Request, res: Response) {
@@ -13,9 +13,9 @@ export class LineFindController {
         throw new Error('The param \'id\' must be informed.');
       }
 
-      const operator = await this.service.execute({ id });
+      const ligature = await this.service.execute({ id });
 
-      return res.json({ operator });
+      return res.json({ ligature });
     } catch(err) {
       return res.status(500).json({ message: err.message || 'Unexpected error.' });
     }

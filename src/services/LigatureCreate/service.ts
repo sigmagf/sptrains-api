@@ -1,25 +1,33 @@
-import { Line } from '~/entities/Line';
+import { Ligature } from '~/entities/Ligature';
 
-import { ILinesRepository } from '~/repositories/ILinesRepository';
+import { ILigaturesRepository } from '~/repositories/ILigaturesRepository';
 
-interface ILineCreateServiceDTO {
-  number: number;
-  name: string;
-  color: string;
-  active: boolean;
-  operatorId: string;
+interface ILigatureCreateServiceDTO {
+  lineId: string;
+  stationId: string;
+  details: string;
+  nextId?: string;
+  previousId?: string;
 }
 
-export class LineCreateService {
-  constructor(private repository: ILinesRepository) {}
+export class LigatureCreateService {
+  constructor(private repository: ILigaturesRepository) {}
 
-  async execute(data: ILineCreateServiceDTO) {
-    if(await this.repository.findByNumber(data.number)) {
-      throw new Error('Line already exists.');
+  async execute(data: ILigatureCreateServiceDTO) {
+    if(await this.repository.findByLineAndStation(data.lineId, data.stationId)) {
+      throw new Error('Station already in line.');
     }
 
-    const station = await this.repository.save(new Line(data));
+    if(!data.nextId && !data.previousId) {
+      const haveStationInLine = await this.repository.listByLine(data.lineId);
 
-    return station;
+      if(haveStationInLine.length > 0) {
+        throw new Error('Line have\'t empty, inform \'nextId\' or \'previousId\'.');
+      }
+    }
+
+    const ligature = await this.repository.save(new Ligature(data));
+
+    return ligature;
   }
 }

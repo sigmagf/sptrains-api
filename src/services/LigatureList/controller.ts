@@ -1,19 +1,19 @@
 import { Request, Response } from 'express';
 
-import { LineListService } from './service';
+import { LigatureListService } from './service';
 
-export class LineListController {
-  constructor(private service: LineListService) {}
+export class LigatureListController {
+  constructor(private service: LigatureListService) {}
 
   async handle(req: Request, res: Response) {
     try {
-      const operators = await this.service.execute();
+      const ligatures = await this.service.execute();
 
-      if(operators.length === 0) {
-        throw new Error('No lines founded.');
+      if(ligatures.length === 0) {
+        throw new Error('No ligatures founded.');
       }
 
-      return res.json({ operators });
+      return res.json({ ligatures });
     } catch(err) {
       return res.status(500).json({ message: err.message || 'Unexpected error.' });
     }

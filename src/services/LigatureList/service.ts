@@ -1,11 +1,11 @@
-import { ILinesRepository } from '~/repositories/ILinesRepository';
+import { ILigaturesRepository } from '~/repositories/ILigaturesRepository';
 
-export class LineListService {
-  constructor(private repository: ILinesRepository) {}
+export class LigatureListService {
+  constructor(private repository: ILigaturesRepository) {}
 
   async execute() {
-    const operators = await this.repository.list();
+    const ligatures = await this.repository.list();
 
-    return operators;
+    return ligatures;
   }
 }

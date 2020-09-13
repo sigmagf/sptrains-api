@@ -1,5 +1,10 @@
 import { Router } from 'express';
 
+import { ligatureCreateController } from './services/LigatureCreate';
+import { ligatureDeleteController } from './services/LigatureDelete';
+import { ligatureFindController } from './services/LigatureFind';
+import { ligatureListController } from './services/LigatureList';
+import { ligatureUpdateController } from './services/LigatureUpdate';
 import { lineCreateController } from './services/LineCreate';
 import { lineDeleteController } from './services/LineDelete';
 import { lineFindController } from './services/LineFind';
@@ -36,11 +41,11 @@ router.post('/lines', (req, res) => lineCreateController.handle(req, res));
 router.put('/lines/:id', (req, res) => lineUpdateController.handle(req, res));
 router.delete('/lines/:id', (req, res) => lineDeleteController.handle(req, res));
 
-router.get('/ligature', (req, res) => ligatureListController.handle(req, res));
-router.get('/ligature/:id', (req, res) => ligatureFindController.handle(req, res));
-router.post('/ligature', (req, res) => ligatureCreateController.handle(req, res));
-router.put('/ligature/:id', (req, res) => ligatureUpdateController.handle(req, res));
-router.delete('/ligature/:id', (req, res) => ligatureDeleteController.handle(req, res));
+router.get('/ligatures', (req, res) => ligatureListController.handle(req, res));
+router.get('/ligatures/:id', (req, res) => ligatureFindController.handle(req, res));
+router.post('/ligatures', (req, res) => ligatureCreateController.handle(req, res));
+router.put('/ligatures/:id', (req, res) => ligatureUpdateController.handle(req, res));
+router.delete('/ligatures/:id', (req, res) => ligatureDeleteController.handle(req, res));
 
 router.use('*', (req, res) => res.status(404).json({ message: 'Route not found' }));
 

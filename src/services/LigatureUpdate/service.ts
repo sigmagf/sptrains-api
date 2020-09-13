@@ -1,26 +1,26 @@
-import { ILinesRepository } from '~/repositories/ILinesRepository';
+import { ILigaturesRepository } from '~/repositories/ILigaturesRepository';
 
-interface ILineUpdateServiceDTO {
+interface ILigatureUpdateServiceDTO {
   id: string;
-  number?: number;
-  name?: string;
-  color?: string;
-  active?: boolean;
-  operatorId?: string;
+  lineId?: string;
+  stationId?: string;
+  details?: string;
+  nextId?: string;
+  previousId?: string;
 }
 
-export class LineUpdateService {
-  constructor(private repository: ILinesRepository) {}
+export class LigatureUpdateService {
+  constructor(private repository: ILigaturesRepository) {}
 
-  async execute(data: ILineUpdateServiceDTO) {
+  async execute(data: ILigatureUpdateServiceDTO) {
     const station = await this.repository.update(
       data.id,
       {
-        number: data.number,
-        name: data.name,
-        color: data.color,
-        active: data.active,
-        operatorId: data.operatorId,
+        lineId: data.lineId,
+        stationId: data.stationId,
+        details: data.details,
+        nextId: data.nextId,
+        previousId: data.previousId,
       },
     );
 

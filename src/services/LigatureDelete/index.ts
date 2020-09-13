@@ -1,11 +1,11 @@
-import { PrismaLinesRepository } from '~/repositories/PrismaLinesRepository';
+import { PrismaLigaturesRepository } from '~/repositories/PrismaLigaturesRepository';
 
-import { LineDeleteController } from './controller';
-import { LineDeleteService } from './service';
+import { LigatureDeleteController } from './controller';
+import { LigatureDeleteService } from './service';
 
-const repository = new PrismaLinesRepository();
+const repository = new PrismaLigaturesRepository();
 
-const lineDeleteService = new LineDeleteService(repository);
-const lineDeleteController = new LineDeleteController(lineDeleteService);
+const ligatureDeleteService = new LigatureDeleteService(repository);
+const ligatureDeleteController = new LigatureDeleteController(ligatureDeleteService);
 
-export { lineDeleteController, lineDeleteService };
+export { ligatureDeleteController, ligatureDeleteService };
