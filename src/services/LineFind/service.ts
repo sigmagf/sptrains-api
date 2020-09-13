@@ -1,17 +1,17 @@
-import { IOperatorsRepository } from '~/repositories/IOperatorsRepository';
+import { ILinesRepository } from '~/repositories/ILinesRepository';
 
-interface IOperatorFindServiceDTO {
+interface ILineFindServiceDTO {
   id: string;
 }
 
-export class OperatorFindService {
-  constructor(private repository: IOperatorsRepository) {}
+export class LineFindService {
+  constructor(private repository: ILinesRepository) {}
 
-  async execute(data: IOperatorFindServiceDTO) {
+  async execute(data: ILineFindServiceDTO) {
     const station = await this.repository.find(data.id);
 
     if(!station) {
-      throw new Error('No operator founded.');
+      throw new Error('No line founded.');
     }
 
     return station;

@@ -1,7 +1,7 @@
-import { IOperatorsRepository } from '~/repositories/IOperatorsRepository';
+import { ILinesRepository } from '~/repositories/ILinesRepository';
 
-export class OperatorListService {
-  constructor(private repository: IOperatorsRepository) {}
+export class LineListService {
+  constructor(private repository: ILinesRepository) {}
 
   async execute() {
     const operators = await this.repository.list();

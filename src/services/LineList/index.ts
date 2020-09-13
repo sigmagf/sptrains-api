@@ -1,11 +1,11 @@
-import { PrismaOperatorsRepository } from '~/repositories/PrismaOperatorsRepository';
+import { PrismaLinesRepository } from '~/repositories/PrismaLinesRepository';
 
-import { OperatorListController } from './controller';
-import { OperatorListService } from './service';
+import { LineListController } from './controller';
+import { LineListService } from './service';
 
-const repository = new PrismaOperatorsRepository();
+const repository = new PrismaLinesRepository();
 
-const operatorListService = new OperatorListService(repository);
-const operatorListController = new OperatorListController(operatorListService);
+const lineListService = new LineListService(repository);
+const lineListController = new LineListController(lineListService);
 
-export { operatorListController, operatorListService };
+export { lineListController, lineListService };

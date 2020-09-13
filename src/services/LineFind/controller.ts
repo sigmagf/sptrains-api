@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 
-import { OperatorFindService } from './service';
+import { LineFindService } from './service';
 
-export class OperatorFindController {
-  constructor(private service: OperatorFindService) {}
+export class LineFindController {
+  constructor(private service: LineFindService) {}
 
   async handle(req: Request, res: Response) {
     try {

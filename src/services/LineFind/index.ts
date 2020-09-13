@@ -1,11 +1,11 @@
-import { PrismaOperatorsRepository } from '~/repositories/PrismaOperatorsRepository';
+import { PrismaLinesRepository } from '~/repositories/PrismaLinesRepository';
 
-import { OperatorFindController } from './controller';
-import { OperatorFindService } from './service';
+import { LineFindController } from './controller';
+import { LineFindService } from './service';
 
-const repository = new PrismaOperatorsRepository();
+const repository = new PrismaLinesRepository();
 
-const operatorListService = new OperatorFindService(repository);
-const operatorFindController = new OperatorFindController(operatorListService);
+const lineListService = new LineFindService(repository);
+const lineFindController = new LineFindController(lineListService);
 
-export { operatorFindController, operatorListService };
+export { lineFindController, lineListService };

@@ -1,24 +1,24 @@
 import { Request, Response } from 'express';
 
-import { OperatorUpdateService } from './service';
+import { LineUpdateService } from './service';
 
-export class OperatorUpdateController {
-  constructor(private service: OperatorUpdateService) {}
+export class LineUpdateController {
+  constructor(private service: LineUpdateService) {}
 
   async handle(req: Request, res: Response) {
     try {
       const { id } = req.params;
-      const { name, alias } = req.body;
+      const { number, name, color, active, operatorId } = req.body;
 
       if(!id) {
         throw new Error('The param \'id\' must be informed.');
       }
 
-      if(!name && !alias) {
-        throw new Error('Inform \'name\' or \'alias\'.');
+      if(!number && !name && !color && !active && !operatorId) {
+        throw new Error('Inform \'number\', \'name\', \'color\', \'active\' or \'operatorId\'.');
       }
 
-      const stations = await this.service.execute({ id, name, alias });
+      const stations = await this.service.execute({ id, number, name, color, active, operatorId });
 
       return res.json({ stations });
     } catch(err) {

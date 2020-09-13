@@ -1,20 +1,26 @@
-import { IOperatorsRepository } from '~/repositories/IOperatorsRepository';
+import { ILinesRepository } from '~/repositories/ILinesRepository';
 
-interface IOperatorUpdateServiceDTO {
+interface ILineUpdateServiceDTO {
   id: string;
+  number?: number;
   name?: string;
-  alias?: string;
+  color?: string;
+  active?: boolean;
+  operatorId?: string;
 }
 
-export class OperatorUpdateService {
-  constructor(private repository: IOperatorsRepository) {}
+export class LineUpdateService {
+  constructor(private repository: ILinesRepository) {}
 
-  async execute(data: IOperatorUpdateServiceDTO) {
+  async execute(data: ILineUpdateServiceDTO) {
     const station = await this.repository.update(
       data.id,
       {
+        number: data.number,
         name: data.name,
-        alias: data.alias,
+        color: data.color,
+        active: data.active,
+        operatorId: data.operatorId,
       },
     );
 
