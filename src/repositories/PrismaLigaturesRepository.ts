@@ -152,7 +152,15 @@ export class PrismaLigaturesRepository implements ILigaturesRepository {
 
     const returnedLigatures: Ligature[] = ligatures.map((ligature) => this.fixReturn(ligature));
 
-    return returnedLigatures;
+    const ordernedLigatures: Ligature[] = [];
+
+    ordernedLigatures.push(returnedLigatures.find((ligature) => ligature.previousId === null));
+
+    while(ordernedLigatures[ordernedLigatures.length - 1].nextId !== null) {
+      ordernedLigatures.push(returnedLigatures.find((ligature) => ligature.previousId === ordernedLigatures[ordernedLigatures.length - 1].id));
+    }
+
+    return ordernedLigatures;
   }
 
   async update(id: string, data: Partial<Ligature>): Promise<Ligature> {

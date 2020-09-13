@@ -18,11 +18,11 @@ export class OperatorUpdateController {
         throw new Error('Inform \'name\' or \'alias\'.');
       }
 
-      const stations = await this.service.execute({ id, name, alias });
+      const operator = await this.service.execute({ id, name, alias });
 
-      return res.json({ stations });
+      return res.json({ operator });
     } catch(err) {
-      return res.status(500).json({ message: err.message || 'Unexpected error.' });
+      return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }
   }
 }

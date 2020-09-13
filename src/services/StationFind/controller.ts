@@ -17,7 +17,7 @@ export class StationFindController {
 
       return res.json({ station });
     } catch(err) {
-      return res.status(500).json({ message: err.message || 'Unexpected error.' });
+      return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }
   }
 }

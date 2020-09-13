@@ -18,11 +18,11 @@ export class LineUpdateController {
         throw new Error('Inform \'number\', \'name\', \'color\', \'active\' or \'operatorId\'.');
       }
 
-      const stations = await this.service.execute({ id, number, name, color, active, operatorId });
+      const line = await this.service.execute({ id, number, name, color, active, operatorId });
 
-      return res.json({ stations });
+      return res.json({ line });
     } catch(err) {
-      return res.status(500).json({ message: err.message || 'Unexpected error.' });
+      return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }
   }
 }

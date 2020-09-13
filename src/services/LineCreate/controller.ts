@@ -29,7 +29,7 @@ export class LineCreateController {
 
       return res.status(201).json({ line });
     } catch(err) {
-      return res.status(500).json({ message: err.message || 'Unexpected error.' });
+      return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }
   }
 }

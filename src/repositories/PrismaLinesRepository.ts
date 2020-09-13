@@ -39,7 +39,7 @@ export class PrismaLinesRepository implements ILinesRepository {
   }
 
   async list(): Promise<Line[]> {
-    const lines = await this.prisma.line.findMany();
+    const lines = await this.prisma.line.findMany({ orderBy: { number: 'asc' } });
 
     return lines;
   }

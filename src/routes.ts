@@ -4,11 +4,13 @@ import { ligatureCreateController } from './services/LigatureCreate';
 import { ligatureDeleteController } from './services/LigatureDelete';
 import { ligatureFindController } from './services/LigatureFind';
 import { ligatureListController } from './services/LigatureList';
+import { ligatureListByLineController } from './services/LigatureListByLine';
 import { ligatureUpdateController } from './services/LigatureUpdate';
 import { lineCreateController } from './services/LineCreate';
 import { lineDeleteController } from './services/LineDelete';
 import { lineFindController } from './services/LineFind';
 import { lineListController } from './services/LineList';
+import { lineStatusController } from './services/LineStatus';
 import { lineUpdateController } from './services/LineUpdate';
 import { operatorCreateController } from './services/OperatorCreate';
 import { operatorDeleteController } from './services/OperatorDelete';
@@ -35,6 +37,7 @@ router.post('/operators', (req, res) => operatorCreateController.handle(req, res
 router.put('/operators/:id', (req, res) => operatorUpdateController.handle(req, res));
 router.delete('/operators/:id', (req, res) => operatorDeleteController.handle(req, res));
 
+router.get('/lines/status', (req, res) => lineStatusController.handle(req, res));
 router.get('/lines', (req, res) => lineListController.handle(req, res));
 router.get('/lines/:id', (req, res) => lineFindController.handle(req, res));
 router.post('/lines', (req, res) => lineCreateController.handle(req, res));
@@ -42,6 +45,7 @@ router.put('/lines/:id', (req, res) => lineUpdateController.handle(req, res));
 router.delete('/lines/:id', (req, res) => lineDeleteController.handle(req, res));
 
 router.get('/ligatures', (req, res) => ligatureListController.handle(req, res));
+router.get('/ligatures/l/:lineId', (req, res) => ligatureListByLineController.handle(req, res));
 router.get('/ligatures/:id', (req, res) => ligatureFindController.handle(req, res));
 router.post('/ligatures', (req, res) => ligatureCreateController.handle(req, res));
 router.put('/ligatures/:id', (req, res) => ligatureUpdateController.handle(req, res));

@@ -13,7 +13,7 @@ export class LineUpdateService {
   constructor(private repository: ILinesRepository) {}
 
   async execute(data: ILineUpdateServiceDTO) {
-    const station = await this.repository.update(
+    const line = await this.repository.update(
       data.id,
       {
         number: data.number,
@@ -24,6 +24,6 @@ export class LineUpdateService {
       },
     );
 
-    return station;
+    return line;
   }
 }

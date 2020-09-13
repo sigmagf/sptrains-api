@@ -8,12 +8,12 @@ export class LineFindService {
   constructor(private repository: ILinesRepository) {}
 
   async execute(data: ILineFindServiceDTO) {
-    const station = await this.repository.find(data.id);
+    const line = await this.repository.find(data.id);
 
-    if(!station) {
+    if(!line) {
       throw new Error('No line founded.');
     }
 
-    return station;
+    return line;
   }
 }

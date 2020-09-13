@@ -11,8 +11,8 @@ export class OperatorCreateService {
   constructor(private repository: IOperatorsRepository) {}
 
   async execute(data: IOperatorCreateServiceDTO) {
-    const station = await this.repository.save(new Operator(data));
+    const operator = await this.repository.save(new Operator(data));
 
-    return station;
+    return operator;
   }
 }

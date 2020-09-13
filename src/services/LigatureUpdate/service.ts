@@ -13,7 +13,7 @@ export class LigatureUpdateService {
   constructor(private repository: ILigaturesRepository) {}
 
   async execute(data: ILigatureUpdateServiceDTO) {
-    const station = await this.repository.update(
+    const ligature = await this.repository.update(
       data.id,
       {
         lineId: data.lineId,
@@ -24,6 +24,6 @@ export class LigatureUpdateService {
       },
     );
 
-    return station;
+    return ligature;
   }
 }

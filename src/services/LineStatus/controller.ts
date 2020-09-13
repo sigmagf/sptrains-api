@@ -1,17 +1,13 @@
 import { Request, Response } from 'express';
 
-import { LineListService } from './service';
+import { LineStatusService } from './service';
 
-export class LineListController {
-  constructor(private service: LineListService) {}
+export class LineStatusController {
+  constructor(private service: LineStatusService) {}
 
   async handle(req: Request, res: Response) {
     try {
       const lines = await this.service.execute();
-
-      if(lines.length === 0) {
-        throw new Error('No lines founded.');
-      }
 
       return res.json({ lines });
     } catch(err) {

@@ -17,7 +17,7 @@ export class OperatorFindController {
 
       return res.json({ operator });
     } catch(err) {
-      return res.status(500).json({ message: err.message || 'Unexpected error.' });
+      return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }
   }
 }

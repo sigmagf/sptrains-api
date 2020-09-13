@@ -20,7 +20,7 @@ export class PrismaStationsRepository implements IStationsRepository {
   }
 
   async list(): Promise<Station[]> {
-    const stations = await this.prisma.station.findMany();
+    const stations = await this.prisma.station.findMany({ orderBy: { fullName: 'asc' } });
 
     return stations;
   }

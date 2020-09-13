@@ -21,7 +21,7 @@ export class LigatureCreateController {
 
       return res.status(201).json({ ligature });
     } catch(err) {
-      return res.status(500).json({ message: err.message || 'Unexpected error.' });
+      return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }
   }
 }

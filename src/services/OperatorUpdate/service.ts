@@ -10,7 +10,7 @@ export class OperatorUpdateService {
   constructor(private repository: IOperatorsRepository) {}
 
   async execute(data: IOperatorUpdateServiceDTO) {
-    const station = await this.repository.update(
+    const operator = await this.repository.update(
       data.id,
       {
         name: data.name,
@@ -18,6 +18,6 @@ export class OperatorUpdateService {
       },
     );
 
-    return station;
+    return operator;
   }
 }

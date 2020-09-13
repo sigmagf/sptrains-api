@@ -18,8 +18,8 @@ export class LineCreateService {
       throw new Error('Line already exists.');
     }
 
-    const station = await this.repository.save(new Line(data));
+    const line = await this.repository.save(new Line(data));
 
-    return station;
+    return line;
   }
 }

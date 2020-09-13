@@ -8,12 +8,12 @@ export class OperatorFindService {
   constructor(private repository: IOperatorsRepository) {}
 
   async execute(data: IOperatorFindServiceDTO) {
-    const station = await this.repository.find(data.id);
+    const operator = await this.repository.find(data.id);
 
-    if(!station) {
+    if(!operator) {
       throw new Error('No operator founded.');
     }
 
-    return station;
+    return operator;
   }
 }

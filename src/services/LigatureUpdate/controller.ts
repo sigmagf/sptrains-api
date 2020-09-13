@@ -18,12 +18,12 @@ export class LigatureUpdateController {
         throw new Error('Inform \'lineId\', \'stationId\', \'details\', \'nextId\' or \'previousId\'.');
       }
 
-      const stations = await this.service.execute({ id, lineId, stationId, details, nextId, previousId });
+      const ligature = await this.service.execute({ id, lineId, stationId, details, nextId, previousId });
 
-      return res.json({ stations });
+      return res.json({ ligature });
     } catch(err) {
       console.log(err);
-      return res.status(500).json({ message: err.message || 'Unexpected error.' });
+      return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }
   }
 }
