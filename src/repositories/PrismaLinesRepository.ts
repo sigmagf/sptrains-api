@@ -26,6 +26,12 @@ export class PrismaLinesRepository implements ILinesRepository {
     return line;
   }
 
+  async findByNumber(number: number): Promise<Line> {
+    const line = await this.prisma.line.findOne({ where: { number } });
+
+    return line;
+  }
+
   async find(id: string): Promise<Line> {
     const line = await this.prisma.line.findOne({ where: { id } });
 

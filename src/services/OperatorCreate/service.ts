@@ -1,4 +1,5 @@
 import { Operator } from '~/entities/Operator';
+
 import { IOperatorsRepository } from '~/repositories/IOperatorsRepository';
 
 interface IOperatorCreateServiceDTO {

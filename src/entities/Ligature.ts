@@ -5,9 +5,8 @@ export class Ligature {
 
   public lineId: number;
   public stationId: string;
+  public nextId?: string;
   public details: boolean;
-  public next?: string;
-  public previous?: string;
 
   constructor(props: Omit<Ligature, 'id'>, id?: string) {
     Object.assign(this, props);
