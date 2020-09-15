@@ -5,6 +5,7 @@
   "main": "src/server.ts",
   "scripts": {
     "start": "node dist/server.js",
+    "prestart": "rimraf ./dist && babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "dev": "env NODE_ENV=development tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
     "build": "rimraf ./dist && babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "heroku": "npm-run-all build start",
