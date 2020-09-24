@@ -4,8 +4,7 @@ import { LineFindController } from './controller';
 import { LineFindService } from './service';
 
 const repository = new PrismaLinesRepository();
+const lineFindService = new LineFindService(repository);
+const lineFindController = new LineFindController(lineFindService);
 
-const lineListService = new LineFindService(repository);
-const lineFindController = new LineFindController(lineListService);
-
-export { lineFindController, lineListService };
+export { lineFindController, lineFindService };

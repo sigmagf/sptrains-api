@@ -8,17 +8,17 @@ export class LineUpdateController {
   async handle(req: Request, res: Response) {
     try {
       const { id } = req.params;
-      const { number, name, color, active, operatorId } = req.body;
+      const { number, name, active, operatorId } = req.body;
 
       if(!id) {
         throw new Error('The param \'id\' must be informed.');
       }
 
-      if(!number && !name && !color && !active && !operatorId) {
-        throw new Error('Inform \'number\', \'name\', \'color\', \'active\' or \'operatorId\'.');
+      if(!number && !name && !active && !operatorId) {
+        throw new Error('Inform \'number\', \'name\', \'active\' or \'operatorId\'.');
       }
 
-      const line = await this.service.execute({ id, number, name, color, active, operatorId });
+      const line = await this.service.execute({ id, number, name, active, operatorId });
 
       return res.json({ line });
     } catch(err) {

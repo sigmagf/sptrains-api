@@ -4,7 +4,6 @@ interface ILineUpdateServiceDTO {
   id: string;
   number?: number;
   name?: string;
-  color?: string;
   active?: boolean;
   operatorId?: string;
 }
@@ -18,7 +17,6 @@ export class LineUpdateService {
       {
         number: data.number,
         name: data.name,
-        color: data.color,
         active: data.active,
         operatorId: data.operatorId,
       },

@@ -8,14 +8,13 @@ export class PrismaLinesRepository implements ILinesRepository {
   private prisma = new PrismaClient();
 
   async save(data: Line): Promise<Line> {
-    const { id, number, name, color, active, operatorId } = data;
+    const { id, number, name, active, operatorId } = data;
 
     const line = await this.prisma.line.create({
       data: {
         id,
         number,
         name,
-        color,
         active,
         operator: {
           connect: { id: operatorId },
@@ -45,14 +44,13 @@ export class PrismaLinesRepository implements ILinesRepository {
   }
 
   async update(id: string, data: Partial<Line>): Promise<Line> {
-    const { number, name, color, active, operatorId } = data;
+    const { number, name, active, operatorId } = data;
 
     const line = await this.prisma.line.update({
       where: { id },
       data: {
         number: number || undefined,
         name: name || undefined,
-        color: color || undefined,
         active: active || undefined,
         operator: operatorId ? { connect: { id: operatorId } } : undefined,
       },

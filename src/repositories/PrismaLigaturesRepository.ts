@@ -134,7 +134,7 @@ export class PrismaLigaturesRepository implements ILigaturesRepository {
   }
 
   async listByLine(lineId: string): Promise<Ligature[]> {
-    const ligatures = await this.prisma.stationsOnLine.findMany({
+    const databaseLigatures = await this.prisma.stationsOnLine.findMany({
       where: { lineId },
       select: {
         id: true,
@@ -146,21 +146,21 @@ export class PrismaLigaturesRepository implements ILigaturesRepository {
       },
     });
 
-    if(ligatures.length === 0) {
+    if(databaseLigatures.length === 0) {
       return [];
     }
 
-    const returnedLigatures: Ligature[] = ligatures.map((ligature) => this.fixReturn(ligature));
+    const fixedLigatures: Ligature[] = databaseLigatures.map((ligature) => this.fixReturn(ligature));
 
-    const ordernedLigatures: Ligature[] = [];
+    const ligatures: Ligature[] = [];
 
-    ordernedLigatures.push(returnedLigatures.find((ligature) => ligature.previousId === null));
+    ligatures.push(fixedLigatures.find((ligature) => ligature.previousId === null));
 
-    while(ordernedLigatures[ordernedLigatures.length - 1].nextId !== null) {
-      ordernedLigatures.push(returnedLigatures.find((ligature) => ligature.previousId === ordernedLigatures[ordernedLigatures.length - 1].id));
+    while(ligatures[ligatures.length - 1].nextId !== null) {
+      ligatures.push(fixedLigatures.find((ligature) => ligature.previousId === ligatures[ligatures.length - 1].id));
     }
 
-    return ordernedLigatures;
+    return ligatures;
   }
 
   async update(id: string, data: Partial<Ligature>): Promise<Ligature> {

@@ -4,7 +4,6 @@ import { LineCreateController } from './controller';
 import { LineCreateService } from './service';
 
 const repository = new PrismaLinesRepository();
-
 const lineCreateService = new LineCreateService(repository);
 const lineCreateController = new LineCreateController(lineCreateService);
 

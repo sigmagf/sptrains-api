@@ -5,14 +5,13 @@ export class Line {
 
   public number: number;
   public name: string;
-  public color: string;
   public active: boolean;
   public operatorId: string;
 
   public readonly createdAt: Date;
   public readonly updatedAt: Date;
 
-  constructor(props: Pick<Line, 'number'|'name'|'color'|'active'|'operatorId'>, id?: string) {
+  constructor(props: Pick<Line, 'number'|'name'|'active'|'operatorId'>, id?: string) {
     Object.assign(this, props);
 
     if(!id) {

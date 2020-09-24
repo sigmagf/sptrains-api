@@ -5,7 +5,6 @@ import { ILinesRepository } from '~/repositories/ILinesRepository';
 interface ILineCreateServiceDTO {
   number: number;
   name: string;
-  color: string;
   active: boolean;
   operatorId: string;
 }
