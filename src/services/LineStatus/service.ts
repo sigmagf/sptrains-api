@@ -19,6 +19,8 @@ interface IStatusFixed {
 }
 
 export class LineStatusService {
+  constructor() {}
+
   // eslint-disable-next-line class-methods-use-this
   async execute() {
     const status = await axios.get<IAPIResponse[]>(process.env.STATUS_API_URL);
