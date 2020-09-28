@@ -20,7 +20,7 @@ export class LineUpdateController {
 
       const line = await this.service.execute({ id, number, name, active, operatorId });
 
-      return res.json({ line });
+      return res.json(line);
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

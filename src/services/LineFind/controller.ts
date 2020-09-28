@@ -15,7 +15,7 @@ export class LineFindController {
 
       const line = await this.service.execute({ id });
 
-      return res.json({ line });
+      return res.json(line);
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

@@ -15,7 +15,7 @@ export class OperatorFindController {
 
       const operator = await this.service.execute({ id });
 
-      return res.json({ operator });
+      return res.json(operator);
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

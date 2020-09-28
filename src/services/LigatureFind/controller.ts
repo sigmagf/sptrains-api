@@ -15,7 +15,7 @@ export class LigatureFindController {
 
       const ligature = await this.service.execute({ id });
 
-      return res.json({ ligature });
+      return res.json(ligature);
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

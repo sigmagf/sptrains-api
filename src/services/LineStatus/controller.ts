@@ -7,9 +7,9 @@ export class LineStatusController {
 
   async handle(req: Request, res: Response) {
     try {
-      const lines = await this.service.execute();
+      const status = await this.service.execute();
 
-      return res.json({ lines });
+      return res.json(status);
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

@@ -13,7 +13,7 @@ export class OperatorListController {
         throw new Error('No operators founded.');
       }
 
-      return res.json({ operators });
+      return res.json(operators);
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }
