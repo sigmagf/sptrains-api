@@ -6,6 +6,6 @@ import { app } from './app';
 
 app.listen(process.env.PORT || 3000, () => {
   console.clear();
-  console.log('SPTrains Server');
+  console.log('SPTrains Server 0.1.0');
   console.log(`Run on port: ${process.env.PORT || 3000}`);
 });
