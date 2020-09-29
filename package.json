@@ -52,9 +52,6 @@
     "ts-node-dev": "^1.0.0-pre.51",
     "typescript": "~3.7.2"
   },
-  "prisma": {
-    "schema": "./src/configs/prisma/schema.prisma"
-  },
   "author": "Furlan Solutions",
   "license": "MIT"
 }
