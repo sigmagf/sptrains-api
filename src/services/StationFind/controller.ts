@@ -15,7 +15,7 @@ export class StationFindController {
 
       const station = await this.service.execute({ id });
 
-      return res.json(station);
+      return res.json({ station });
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

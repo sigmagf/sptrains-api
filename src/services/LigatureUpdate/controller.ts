@@ -20,7 +20,7 @@ export class LigatureUpdateController {
 
       const ligature = await this.service.execute({ id, lineId, stationId, details, nextId, previousId });
 
-      return res.json(ligature);
+      return res.json({ ligature });
     } catch(err) {
       console.log(err);
       return res.status(400).json({ message: err.message || 'Unexpected error.' });

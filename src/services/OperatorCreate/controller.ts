@@ -19,7 +19,7 @@ export class OperatorCreateController {
 
       const operator = await this.service.execute({ name, alias });
 
-      return res.status(201).json(operator);
+      return res.status(201).json({ operator });
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

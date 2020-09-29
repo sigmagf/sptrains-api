@@ -23,7 +23,7 @@ export class StationCreateController {
         elevator: elevator || false,
       });
 
-      return res.status(201).json(station);
+      return res.status(201).json({ station });
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

@@ -13,7 +13,7 @@ export class LigatureListController {
         throw new Error('No ligatures founded.');
       }
 
-      return res.json(ligatures);
+      return res.json({ ligatures });
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

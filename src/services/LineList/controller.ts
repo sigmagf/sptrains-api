@@ -13,7 +13,7 @@ export class LineListController {
         throw new Error('No lines founded.');
       }
 
-      return res.json(lines);
+      return res.json({ lines });
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

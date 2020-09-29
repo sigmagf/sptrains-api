@@ -23,7 +23,7 @@ export class LineCreateController {
 
       const line = await this.service.execute({ number, name, active: active || true, operatorId });
 
-      return res.status(201).json(line);
+      return res.status(201).json({ line });
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

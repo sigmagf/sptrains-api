@@ -20,7 +20,7 @@ export class StationUpdateController {
 
       const stations = await this.service.execute({ id, displayName, fullName, elevator });
 
-      return res.json(stations);
+      return res.json({ stations });
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }

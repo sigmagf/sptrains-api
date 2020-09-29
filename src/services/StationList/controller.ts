@@ -13,7 +13,7 @@ export class StationListController {
         throw new Error('No stations founded.');
       }
 
-      return res.json(stations);
+      return res.json({ stations });
     } catch(err) {
       return res.status(400).json({ message: err.message || 'Unexpected error.' });
     }
