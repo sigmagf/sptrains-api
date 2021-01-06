@@ -21,7 +21,7 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@prisma/client": "^2.6.2",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "babel-plugin-root-import": "^6.5.0",
     "cors": "^2.8.5",
     "delay": "^4.4.0",
